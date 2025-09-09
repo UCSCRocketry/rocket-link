@@ -14,7 +14,7 @@ body, html {
 /* Background */
 .background {
   background: url("background.jpg") center/cover no-repeat;
-  filter: blur(4px); /* brightness(0.4)*/
+  filter: blur(4px);
   position: fixed;
   top: 0;
   left: 0;
@@ -71,7 +71,6 @@ main {
 }
 
 /* QR Code Modal */
-
 #qr-modal {
   display: none;
   position: fixed;
@@ -80,6 +79,7 @@ main {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 1rem;
 }
 
 #qr-modal.active {
@@ -88,38 +88,55 @@ main {
 
 .qr-content {
   background: white;
-  padding: 1rem;
-  border-radius: 16px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-}
-
-.qr-content canvas,
-.qr-content img {
-  width: 300px;
-  height: 300px;
-}
-
-.qr-link-text {
-  font-size: 1rem;
-  color: black;
-  text-align: center;
-  margin-bottom: 1rem;
-  word-break: break-all;
-}
-
-.qr-instruction {
-  font-size: 0.9rem;
-  color: #333;
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.qr-content {
-  background: white;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem;
   border-radius: 16px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.qr-link-text {
+  font-size: 0.9rem;
+  color: black;
+  text-align: center;
+  margin-bottom: 1rem;
+  word-break: break-all;
+  max-width: 280px;
+}
+
+.qr-instruction {
+  font-size: 0.8rem;
+  color: #666;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* QR Code sizing */
+#qrcode,
+#qrcode canvas,
+#qrcode img {
+  width: 280px !important;
+  height: 280px !important;
+}
+
+@media (max-width: 480px) {
+  .qr-content {
+    padding: 1rem;
+    max-width: 95vw;
+  }
+
+  .qr-link-text {
+    font-size: 0.8rem;
+    max-width: 220px;
+  }
+
+  #qrcode,
+  #qrcode canvas,
+  #qrcode img {
+    width: 220px !important;
+    height: 220px !important;
+  }
 }
