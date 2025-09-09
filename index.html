@@ -10,7 +10,7 @@
     <script src="script.js" defer></script>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
     >
   </head>
   <body>
@@ -19,28 +19,73 @@
     <main>
       <img src="rocket-team-logo.png" alt="Rocket Team Logo" class="logo" />
 
-      <nav class="links">
-        <a href="https://soundingrocket.org" target="_blank"><i
-            class="fa-solid fa-rocket"
-          ></i> IREC 2025-2026</a>
+      <div class="links-container">
+        <div class="icon-row" aria-label="Social links">
+          <a
+            class="icon-btn"
+            href="https://www.instagram.com/ucscrocketry/"
+            target="_blank"
+            aria-label="Instagram"
+          >
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
 
-        <a href="https://ucscrocketry.org" target="_blank"><i
-            class="fa-solid fa-globe"
-          ></i> Website</a>
-        <a
-          href="https://www.instagram.com/ucscrocketry/?hl=en"
-          target="_blank"
-        ><i class="fa-brands fa-instagram"></i> Instagram</a>
-        <a href="https://slack.ucscrocketry.org" target="_blank"><i
-            class="fa-brands fa-slack"
-          ></i> Slack</a>
-        <a href="mailto:rockets@ucsc.edu" target="_blank"><i
-            class="fa-solid fa-envelope"
-          ></i> Contact Us</a>
-        <a href="#" id="qr-toggle">
-          <i class="fa-solid fa-qrcode"></i> QR Code
-        </a>
-      </nav>
+          <a
+            class="icon-btn"
+            href="https://www.linkedin.com/school/ucscrocketteam"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+          </a>
+
+          <a
+            class="icon-btn"
+            href="mailto:rockets@ucsc.edu"
+            target="_blank"
+            aria-label="Email"
+          >
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          </a>
+
+          <a
+            class="icon-btn"
+            href="https://www.youtube.com/@UCSCRocketTeam"
+            target="_blank"
+            aria-label="YouTube"
+          >
+            <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <nav class="links">
+          <a href="https://soundingrocket.org" target="_blank">
+            <i class="fa-solid fa-rocket"> </i> IREC 2025-2026</a>
+
+          <a href="https://ucscrocketry.org" target="_blank">
+            <i class="fa-solid fa-globe"> </i> Website</a>
+
+          <a
+            href="https://calendar.google.com/calendar/u/0?cid=MzE0NnRvaXNuZmhqYnEyY3N1cHI4ZTZyam9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ"
+            target="_blank"
+          >
+            <i class="fa-solid fa-calendar"> </i> Calendar</a>
+
+          <a href="https://slack.ucscrocketry.org" target="_blank">
+            <i class="fa-brands fa-slack"> </i> Slack</a>
+
+          <a
+            href="https://ucscrocketry.notion.site/7451c59bbf2f498fa7ac76abfc55700a?v=0e5418b1384643f5a15afb6b2e7cc674&pvs=4"
+            target="_blank"
+          >
+            <i class="fa-brands fa-notion"> </i> Notion</a>
+
+          <a href="#" id="qr-toggle">
+            <i class="fa-solid fa-qrcode"> </i> QR Code
+          </a>
+        </nav>
+      </div>
+
       <div id="qr-modal">
         <div class="qr-content">
           <p class="qr-link-text" id="qr-link"></p>
