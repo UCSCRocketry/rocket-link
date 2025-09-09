@@ -64,11 +64,29 @@
         correctLevel: QRCode.CorrectLevel.H,
       });
 
+      let touchHandled = false;
+
+      function showModal(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        qrModal.classList.add("active");
+      }
+
       document.getElementById("qr-toggle").addEventListener(
         "touchend",
-        (e) => {
-          e.preventDefault();
-          qrModal.classList.add("active");
+        function (e) {
+          touchHandled = true;
+          showModal(e);
+          setTimeout(() => touchHandled = false, 500);
+        },
+      );
+
+      document.getElementById("qr-toggle").addEventListener(
+        "click",
+        function (e) {
+          if (!touchHandled) {
+            showModal(e);
+          }
         },
       );
 

@@ -105,6 +105,7 @@ main {
   margin-bottom: 1rem;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  white-space: break-word;
   max-width: 280px;
 }
 
