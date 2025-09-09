@@ -1,31 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UCSC Rocket Team</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#0a0a0a">
-  <script src="script.js" defer></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-  <div class="background"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UCSC Rocket Team</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a0a0a">
+    <script src="script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+  </head>
+  <body>
+    <div class="background"></div>
 
-  <main>
+    <main>
+      <img src="rocket-team-logo.png" alt="Rocket Team Logo" class="logo" />
 
+      <nav class="links">
+        <a href="https://soundingrocket.org" target="_blank"><i
+            class="fa-solid fa-rocket"
+          ></i> IREC 2025-2026</a>
 
-    <img src="rocket-team-logo.png" alt="Rocket Team Logo" class="logo" />
+        <a href="https://ucscrocketry.org" target="_blank"><i
+            class="fa-solid fa-globe"
+          ></i> Website</a>
+        <a
+          href="https://www.instagram.com/ucscrocketry/?hl=en"
+          target="_blank"
+        ><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <a href="https://slack.ucscrocketry.org" target="_blank"><i
+            class="fa-brands fa-slack"
+          ></i> Slack</a>
+        <a href="mailto:rockets@ucsc.edu" target="_blank"><i
+            class="fa-solid fa-envelope"
+          ></i> Contact Us</a>
+        <a href="#" id="qr-toggle">
+          <i class="fa-solid fa-qrcode"></i> QR Code
+        </a>
+      </nav>
+      <div id="qr-modal">
+        <div class="qr-content">
+          <p class="qr-link-text" id="qr-link"></p>
+          <div id="qrcode"></div>
+          <p class="qr-instruction">Click anywhere to hide</p>
+        </div>
+      </div>
+    </main>
+    <script src="qrcode.js"></script>
+    <script>
+      const qrModal = document.getElementById("qr-modal");
+      const qrContainer = document.getElementById("qrcode");
+      const qrLinkText = document.getElementById("qr-link");
 
-    <nav class="links">
-	      <a href="https://soundingrocket.org" target="_blank"><i class="fa-solid fa-rocket"></i> IREC 2025-2026</a>
+      qrLinkText.textContent = location.href;
 
-      <a href="https://ucscrocketry.org" target="_blank"><i class="fa-solid fa-globe"></i> Website</a>
-      <a href="https://www.instagram.com/ucscrocketry/?hl=en" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
-      <a href="https://slack.ucscrocketry.org" target="_blank"><i class="fa-brands fa-slack"></i> Slack</a>
-      <a href="mailto:rockets@ucsc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Contact Us</a>
-    </nav>
-  </main>
-</body>
+      new QRCode(qrContainer, {
+        text: location.href,
+        width: 300,
+        height: 300,
+        correctLevel: QRCode.CorrectLevel.H,
+      });
+
+      document.getElementById("qr-toggle").addEventListener(
+        "click",
+        (e) => {
+          e.preventDefault();
+          qrModal.classList.add("active");
+        },
+      );
+
+      qrModal.addEventListener("click", (e) => {
+        if (e.target === qrModal) {
+          qrModal.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
 </html>
