@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UCSC Rocket Team</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="manifest" href="manifest.json">
+
+    <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.cdnfonts.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
     <meta name="theme-color" content="#0a0a0a">
-    <script src="script.js" defer></script>
-    <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
     <link
-      rel="stylesheet"
+      rel="preload"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     >
+    <noscript><link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      ></noscript>
+
+    <link
+      rel="preload"
+      href="https://fonts.cdnfonts.com/css/aileron"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    >
+    <noscript><link
+        rel="stylesheet"
+        href="https://fonts.cdnfonts.com/css/aileron"
+      ></noscript>
+
+    <link rel="manifest" href="manifest.json">
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -30,13 +53,12 @@
       sizes="16x16"
       href="favicons/favicon-16x16.png"
     >
-    <link rel="manifest" href="webmanifest.json">
   </head>
   <body>
     <div class="background"></div>
 
     <main>
-      <img src="rocket-team-logo.png" alt="Rocket Team Logo" class="logo" />
+      <img src="rocket-team-logo.png" alt="Rocket Team Logo" class="logo">
 
       <div class="links-container">
         <div class="icon-row" aria-label="Social links">
@@ -48,7 +70,6 @@
           >
             <i class="fa-brands fa-instagram" aria-hidden="true"></i>
           </a>
-
           <a
             class="icon-btn"
             href="https://www.linkedin.com/school/ucscrocketteam"
@@ -57,7 +78,6 @@
           >
             <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
           </a>
-
           <a
             class="icon-btn"
             href="mailto:rockets@ucsc.edu"
@@ -66,7 +86,6 @@
           >
             <i class="fa-solid fa-envelope" aria-hidden="true"></i>
           </a>
-
           <a
             class="icon-btn"
             href="https://www.youtube.com/@UCSCRocketTeam"
@@ -79,28 +98,20 @@
 
         <nav class="links">
           <a href="https://soundingrocket.org" target="_blank">
-            <i class="fa-solid fa-rocket"> </i> IREC 2025-2026</a>
-
+            <i class="fa-solid fa-rocket"></i> IREC 2025-2026</a>
           <a href="https://ucscrocketry.org" target="_blank">
-            <i class="fa-solid fa-globe"> </i> Website</a>
-
+            <i class="fa-solid fa-globe"></i> Website</a>
           <a
-            href="https://calendar.google.com/calendar/u/0?cid=MzE0NnRvaXNuZmhqYnEyY3N1cHI4ZTZyam9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ"
+            href="https://calendar.google.com/calendar/u/0?cid=..."
             target="_blank"
           >
-            <i class="fa-solid fa-calendar"> </i> Calendar</a>
-
+            <i class="fa-solid fa-calendar"></i> Calendar</a>
           <a href="https://slack.ucscrocketry.org" target="_blank">
-            <i class="fa-brands fa-slack"> </i> Slack</a>
-
-          <a
-            href="https://ucscrocketry.notion.site/7451c59bbf2f498fa7ac76abfc55700a?v=0e5418b1384643f5a15afb6b2e7cc674&pvs=4"
-            target="_blank"
-          >
-            <i class="fa-brands fa-notion"> </i> Notion</a>
-
+            <i class="fa-brands fa-slack"></i> Slack</a>
+          <a href="https://ucscrocketry.notion.site/..." target="_blank">
+            <i class="fa-brands fa-notion"></i> Notion</a>
           <a href="#" id="qr-toggle">
-            <i class="fa-solid fa-qrcode"> </i> QR Code
+            <i class="fa-solid fa-qrcode"></i> QR Code
           </a>
         </nav>
       </div>
@@ -113,14 +124,15 @@
         </div>
       </div>
     </main>
-    <script src="qrcode.js"></script>
-    <script>
+
+    <script src="script.js" defer></script>
+    <script src="qrcode.js" defer></script>
+    <script defer>
       const qrModal = document.getElementById("qr-modal");
       const qrContainer = document.getElementById("qrcode");
       const qrLinkText = document.getElementById("qr-link");
 
       qrLinkText.textContent = location.href;
-
       new QRCode(qrContainer, {
         text: location.href,
         width: 300,
@@ -129,7 +141,6 @@
       });
 
       let touchHandled = false;
-
       function showModal(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -148,16 +159,12 @@
       document.getElementById("qr-toggle").addEventListener(
         "click",
         function (e) {
-          if (!touchHandled) {
-            showModal(e);
-          }
+          if (!touchHandled) showModal(e);
         },
       );
 
       qrModal.addEventListener("click", (e) => {
-        if (e.target === qrModal) {
-          qrModal.classList.remove("active");
-        }
+        if (e.target === qrModal) qrModal.classList.remove("active");
       });
     </script>
   </body>
