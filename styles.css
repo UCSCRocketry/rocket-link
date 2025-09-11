@@ -13,7 +13,7 @@ body, html {
 
 /* Background */
 .background {
-  background: url("background.jpg") center/cover no-repeat;
+  background: url("background.png") center/cover no-repeat;
   filter: blur(4px);
   position: fixed;
   top: 0;
