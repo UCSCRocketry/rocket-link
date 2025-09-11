@@ -7,17 +7,17 @@ const FILES_TO_CACHE = [
   "/script.js",
   "/manifest.json",
   "/logo.png",
-  "/rocket-bg.jpg"
+  "/rocket-bg.webp",
 ];
 
-self.addEventListener("install", e => {
+self.addEventListener("install", (e) => {
   e.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(FILES_TO_CACHE))
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE)),
   );
 });
 
-self.addEventListener("fetch", e => {
+self.addEventListener("fetch", (e) => {
   e.respondWith(
-    caches.match(e.request).then(response => response || fetch(e.request))
+    caches.match(e.request).then((response) => response || fetch(e.request)),
   );
 });
